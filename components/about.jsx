@@ -58,7 +58,7 @@ export default function About() {
 
           <div className="text-center">
             <Link
-              href="https://res.cloudinary.com/dwtkhcnb4/image/upload/v1/CV/Givaro_Ananta_-_CV_ATS_gmpo9n.pdf"
+              href="/CV ATS GIVARO ANANTA.pdf"
               target="_blank"
               rel="noopener noreferrer"
               download="Givaro_Ananta_CV.pdf"
