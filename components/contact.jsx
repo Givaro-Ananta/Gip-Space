@@ -87,7 +87,7 @@ export default function Contact() {
               <h3 className="text-xl font-semibold mb-4">Follow Me</h3>
               <div className="flex gap-4">
                 <a
-                  href="https://github.com/GivaroAnanta"
+                  href="https://github.com/Givaro-Ananta"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-gray-800 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-all"
