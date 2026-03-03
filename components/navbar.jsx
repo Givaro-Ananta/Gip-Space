@@ -11,15 +11,6 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home")
 
   useEffect(() => {
-    // Simple debounce implementation
-    const debounce = (func, wait) => {
-      let timeout;
-      return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, args), wait);
-      };
-    };
-
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
@@ -40,9 +31,8 @@ export default function Navbar() {
       }
     };
 
-    const debouncedHandleScroll = debounce(handleScroll, 100);
-    window.addEventListener("scroll", debouncedHandleScroll);
-    return () => window.removeEventListener("scroll", debouncedHandleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // navLinks imported from data/navLinks.js

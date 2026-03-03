@@ -3,39 +3,17 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
-import { ExternalLink, Github, ArrowRight } from "lucide-react"
+import Link from "next/link"
+import { ExternalLink, ArrowRight } from "lucide-react"
+import { projects } from "./data/projectsData"
+
+const MAX_PREVIEW = 4
 
 export default function Projects() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
 
-  const projects = [
-    {
-      title: "Dashboard Analisis Gaji",
-      description:
-        "Dashboard ini dibuat untuk menampilkan analisis gaji di sebuah kantor pemerintah provinsi Lampung tahun 2025.",
-      image: "/porto-1.png",
-      tags: ["Python", "Streamlit", "Data Analysis"],
-      liveUrl: "#",
-    },
-    {
-      title: "Text Feedback Sentiment Analyzer",
-      description:
-        "Memanfaatkan NLP untuk mendeteksi kepuasan dengan memanfaatkan ulasan pelanggan menggunakan model Machine Learning Naive Bayes.",
-      image: "/porto-2.png",
-      tags: ["Python", "NLP", "Machine Learning", "React"],
-      liveUrl: "https://nlp-project-chi.vercel.app/",
-      githubUrl: "#",
-    },
-    {
-      title: "Fire & Smoke Detection",
-      description:
-        "Sistem deteksi api dan asap secara real-time menggunakan YOLOv8 deep learning model, dengan backend FastAPI dan frontend web berbasis kamera.",
-      image: "/porto-3.png",
-      tags: ["Python", "JavaScript", "CSS", "HTML", "Dockerfile"],
-      liveUrl: "https://fire-smoke-detection-xi.vercel.app/",
-    },
-  ]
+  const previewProjects = projects.slice(0, MAX_PREVIEW)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -83,7 +61,7 @@ export default function Projects() {
           animate={isInView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
-          {projects.map((project, index) => (
+          {previewProjects.map((project) => (
             <motion.div
               key={project.title}
               variants={itemVariants}
@@ -131,16 +109,15 @@ export default function Projects() {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="text-center mt-12"
         >
-          <a
-            href="#"
+          <Link
+            href="/projects"
             className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
           >
             View All Projects
             <ArrowRight size={16} />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
   )
 }
-
