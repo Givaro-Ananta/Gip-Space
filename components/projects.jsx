@@ -27,6 +27,14 @@ export default function Projects() {
       liveUrl: "https://nlp-project-chi.vercel.app/",
       githubUrl: "#",
     },
+    {
+      title: "Fire & Smoke Detection",
+      description:
+        "Sistem deteksi api dan asap secara real-time menggunakan YOLOv8 deep learning model, dengan backend FastAPI dan frontend web berbasis kamera.",
+      image: "/porto-3.png",
+      tags: ["Python", "JavaScript", "CSS", "HTML", "Dockerfile"],
+      liveUrl: "https://fire-smoke-detection-xi.vercel.app/",
+    },
   ]
 
   const containerVariants = {
