@@ -96,9 +96,11 @@
 
 <br/>
 
-<a href="https://github.com/Givaro-Ananta">
-  <img src="https://github-readme-streak-stats-nine-woad.vercel.app/?user=Givaro-Ananta&theme=tokyonight&hide_border=true&background=0D1117&ring=A855F7&fire=A855F7&currStreakLabel=A855F7&dates=C9D1D9" alt="GitHub Streak" />
-</a>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Givaro-Ananta/Gip-Space/output/github-contribution-grid-snake-dark.svg"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Givaro-Ananta/Gip-Space/output/github-contribution-grid-snake.svg"/>
+  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/Givaro-Ananta/Gip-Space/output/github-contribution-grid-snake.svg" width="100%"/>
+</picture>
 
 </div>
 
