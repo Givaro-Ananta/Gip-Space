@@ -84,48 +84,6 @@ For details on all libraries used in this project:
 
 ---
 
-## 🚀 Getting Started
-
-To get a local copy up and running, follow these simple steps:
-
-### Prerequisites
-
-* Node.js (v18.x or higher recommended)
-* npm or yarn
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Givaro-Ananta/Gip-Space.git
-   ```
-
-2. **Navigate to project directory**
-   ```bash
-   cd Gip-Space
-   ```
-
-3. **Install npm packages**
-   ```bash
-   npm install
-   ```
-
-4. **Set up Environment Variables**
-   Create a `.env.local` file in the root folder and add your Web3Forms access key:
-   ```env
-   NEXT_PUBLIC_WEB3FORMS_KEY=your-web3forms-access-key-here
-   ```
-   *(You can obtain a free key at [web3forms.com](https://web3forms.com))*
-
-5. **Run the development server**
-   ```bash
-   npm run dev
-   ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
----
-
 ## 🌐 Deployment
 
 This project is optimized for deployment on the [Vercel Platform](https://vercel.com). The easiest way to deploy is to import your repository on Vercel, which will automatically configure Next.js builds. Remember to add the `NEXT_PUBLIC_WEB3FORMS_KEY` environment variable in your Vercel Project Settings!
