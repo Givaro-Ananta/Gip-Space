@@ -87,12 +87,18 @@
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=Givaro-Ananta&show_icons=true&rank_icon=github&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A855F7&icon_color=A855F7&text_color=C9D1D9" alt="GitHub Stats" height="170"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Givaro-Ananta&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A855F7&text_color=C9D1D9" alt="Top Languages" height="170"/>
+<a href="https://github.com/Givaro-Ananta">
+  <img src="https://github-readme-stats-nine-tan-88.vercel.app/api?username=Givaro-Ananta&show_icons=true&rank_icon=github&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A855F7&icon_color=A855F7&text_color=C9D1D9&cache_seconds=86400" alt="GitHub Stats" height="170"/>
+</a>
+<a href="https://github.com/Givaro-Ananta">
+  <img src="https://github-readme-stats-nine-tan-88.vercel.app/api/top-langs/?username=Givaro-Ananta&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A855F7&text_color=C9D1D9&cache_seconds=86400&langs_count=8" alt="Top Languages" height="170"/>
+</a>
 
 <br/>
 
-<img src="https://streak-stats.demolab.com?user=Givaro-Ananta&theme=tokyonight&hide_border=true&background=0D1117&ring=A855F7&fire=A855F7&currStreakLabel=A855F7" alt="GitHub Streak" />
+<a href="https://github.com/Givaro-Ananta">
+  <img src="https://streak-stats.demolab.com/?user=Givaro-Ananta&theme=tokyonight&hide_border=true&background=0D1117&ring=A855F7&fire=A855F7&currStreakLabel=A855F7&dates=C9D1D9" alt="GitHub Streak" />
+</a>
 
 </div>
 
