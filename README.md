@@ -53,17 +53,17 @@
 
 <br/>
 
-| Category | Technology | Purpose |
-|:--------:|:----------:|:-------:|
-| **Framework** | Next.js 14 | App Router, SSR/SSG |
-| **UI Library** | React 18 | Component-based UI |
-| **Styling** | Tailwind CSS 3.4 | Utility-first CSS |
-| **Animation** | Framer Motion | Page transitions & reveals |
-| **Icons** | Lucide React + React Icons | UI iconography |
-| **Form** | Web3Forms API | Serverless form handling |
-| **Font** | Inter (Google Fonts) | Modern typography |
-| **Analytics** | Vercel Analytics | Traffic insights |
-| **Deployment** | Vercel | Edge network hosting |
+|    Category    |         Technology         |          Purpose           |
+| :------------: | :------------------------: | :------------------------: |
+| **Framework**  |         Next.js 14         |    App Router, SSR/SSG     |
+| **UI Library** |          React 18          |     Component-based UI     |
+|  **Styling**   |      Tailwind CSS 3.4      |     Utility-first CSS      |
+| **Animation**  |       Framer Motion        | Page transitions & reveals |
+|   **Icons**    | Lucide React + React Icons |       UI iconography       |
+|    **Form**    |       Web3Forms API        |  Serverless form handling  |
+|    **Font**    |    Inter (Google Fonts)    |     Modern typography      |
+| **Analytics**  |      Vercel Analytics      |      Traffic insights      |
+| **Deployment** |           Vercel           |    Edge network hosting    |
 
 </details>
 
@@ -73,11 +73,11 @@
 
 <div align="center">
 
-| # | Project | Description | Tech |
-|:-:|:-------:|:-----------:|:----:|
-| 1 | **Dashboard Analisis Gaji** | Salary analysis dashboard for a government office in Lampung 2025 | `Python` `Streamlit` `Data Analysis` |
-| 2 | **Text Feedback Sentiment Analyzer** | NLP-powered customer feedback sentiment detection using Naive Bayes | `Python` `NLP` `ML` `React` |
-| 3 | **Fire & Smoke Detection** | Real-time fire/smoke detection using YOLOv8 with FastAPI backend | `Python` `JS` `Docker` `YOLO` |
+|   #   |               Project                |                             Description                             |                 Tech                 |
+| :---: | :----------------------------------: | :-----------------------------------------------------------------: | :----------------------------------: |
+|   1   |     **Dashboard Analisis Gaji**      |  Salary analysis dashboard for a government office in Lampung 2025  | `Python` `Streamlit` `Data Analysis` |
+|   2   | **Text Feedback Sentiment Analyzer** | NLP-powered customer feedback sentiment detection using Naive Bayes |     `Python` `NLP` `ML` `React`      |
+|   3   |      **Fire & Smoke Detection**      |  Real-time fire/smoke detection using YOLOv8 with FastAPI backend   |    `Python` `JS` `Docker` `YOLO`     |
 
 </div>
 
@@ -97,7 +97,7 @@
 <br/>
 
 <a href="https://github.com/Givaro-Ananta">
-  <img src="https://streak-stats.demolab.com/?user=Givaro-Ananta&theme=tokyonight&hide_border=true&background=0D1117&ring=A855F7&fire=A855F7&currStreakLabel=A855F7&dates=C9D1D9" alt="GitHub Streak" />
+  <img src="https://github-readme-streak-stats-nine-woad.vercel.app/?user=Givaro-Ananta&theme=tokyonight&hide_border=true&background=0D1117&ring=A855F7&fire=A855F7&currStreakLabel=A855F7&dates=C9D1D9" alt="GitHub Streak" />
 </a>
 
 </div>
