@@ -3,14 +3,27 @@
 <!-- Animated SVG Header -->
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=250&section=header&text=Gip'z%20Space&fontSize=70&fontAlignY=35&animation=twinkling&fontColor=ffffff&desc=Personal%20Portfolio%20Website&descSize=20&descAlignY=55" width="100%"/>
 
+<!-- Typing SVG -->
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=A855F7&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=100&lines=AI+Enthusiast+%7C+Data+Science+Student;Building+Intelligent+Data-Driven+Solutions;Turning+Raw+Data+Into+Meaningful+Insights" alt="Typing SVG" />
+</a>
+
 <br/>
 
-<!-- Tech Badges -->
+<!-- Badges -->
 [![Next.js](https://img.shields.io/badge/Next.js-14-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-Latest-FF0055?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 [![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
+
+<br/>
+
+<!-- Social Badges -->
+[![GitHub](https://img.shields.io/badge/GitHub-Givaro--Ananta-181717?style=flat-square&logo=github)](https://github.com/Givaro-Ananta)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Givaro%20Ananta-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/givaro-ananta)
+[![Instagram](https://img.shields.io/badge/Instagram-@givarooo-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://instagram.com/givarooo)
+[![Email](https://img.shields.io/badge/Email-givaroananta02@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:givaroananta02@gmail.com)
 
 </div>
 
@@ -18,53 +31,25 @@
 
 ## 🚀 About The Project
 
-**Gip'z Space** is a modern, dark-themed personal portfolio website built with **Next.js 14** and the **App Router**. It serves as a central hub to showcase my developer journey, skills, and projects as a Data Science student and AI enthusiast. The project features smooth scroll animations, a fully responsive design, and an integrated, serverless contact form.
+**Gip'z Space** is a modern, dark-themed personal portfolio website built with **Next.js 14** and the **App Router**. It showcases my journey as a Data Science student and AI enthusiast — featuring interactive animations, a responsive layout, and a sleek purple-to-blue gradient identity.
+
+<div align="center">
+<table>
+<tr>
+<td align="center"><strong>🎨 Dark Theme</strong><br/>Sleek gray-950 background<br/>with purple accents</td>
+<td align="center"><strong>✨ Animations</strong><br/>Framer Motion + typing<br/>effect + scroll reveals</td>
+<td align="center"><strong>📱 Responsive</strong><br/>Mobile-first design<br/>with hamburger menu</td>
+<td align="center"><strong>📬 Contact Form</strong><br/>Web3Forms integration<br/>for real submissions</td>
+</tr>
+</table>
+</div>
 
 ---
 
-## ✨ Features
-
-- **🎨 Modern Dark Theme**: Elegant dark gray-950 background with customized purple accent branding.
-- **✨ Smooth Motion & Transitions**: Page elements animate dynamically using Framer Motion as you scroll.
-- **📱 Fully Responsive Design**: Designed mobile-first with a custom hamburger navigation menu.
-- **📬 Serverless Contact Form**: Integrated with the Web3Forms API for instant email notifications of submissions.
-- **🛠️ Optimized SEO & Fonts**: Uses Google Fonts (Inter) via Next.js Font Optimization and proper meta tags.
-
----
-
-## 📁 Project Structure
-
-Here is a quick overview of the codebase organization:
-
-```text
-├── app/                  # Next.js App Router root
-│   ├── globals.css       # Core Tailwind CSS imports
-│   ├── layout.jsx        # Root layout with navbar and footer
-│   ├── page.jsx          # Hero page combining sections
-│   └── projects/         # Project routes and details
-├── components/           # Reusable UI components
-│   ├── data/             # Static UI data configuration
-│   │   ├── navLinks.js
-│   │   └── projectsData.js
-│   ├── about.jsx         # About Me section
-│   ├── footer.jsx        # Footer with links and animations
-│   ├── get-in-touch.jsx  # Contact form component
-│   ├── hero.jsx          # Hero banner with writing animation
-│   ├── navbar.jsx        # Header nav menu with responsive drawer
-│   ├── projects.jsx      # Grid of featured projects
-│   └── skills.jsx        # Tech skills grid
-├── public/               # Static assets (images, icons, etc.)
-└── tailwind.config.js    # Customized theme colors and patterns
-```
-
----
-
-## 📦 Tech Stack & Dependencies
-
-For details on all libraries used in this project:
+## 📦 Full Dependencies
 
 <details>
-<summary>🔽 <strong>Click to expand dependencies</strong></summary>
+<summary>🔽 <strong>Click to expand</strong></summary>
 
 <br/>
 
@@ -84,15 +69,46 @@ For details on all libraries used in this project:
 
 ---
 
-## 🌐 Deployment
+## 🗂️ Featured Projects
 
-This project is optimized for deployment on the [Vercel Platform](https://vercel.com). The easiest way to deploy is to import your repository on Vercel, which will automatically configure Next.js builds. Remember to add the `NEXT_PUBLIC_WEB3FORMS_KEY` environment variable in your Vercel Project Settings!
+<div align="center">
+
+|   #   |               Project                |                             Description                             |                 Tech                 |
+| :---: | :----------------------------------: | :-----------------------------------------------------------------: | :----------------------------------: |
+|   1   |     **Dashboard Analisis Gaji**      | Salary analysis dashboard for a government office in Lampung 2025<br/>*(dashboard ini tidak bisa dipublish karena mengandung data sensitif)* | `Python` `Streamlit` `Data Analysis` |
+|   2   | [**Text Feedback Sentiment Analyzer**](https://nlp-project-chi.vercel.app/) | NLP-powered customer feedback sentiment detection using Naive Bayes |     `Python` `NLP` `ML` `React`      |
+|   3   | [**Fire & Smoke Detection**](https://fire-smoke-detection-xi.vercel.app/) |  Real-time fire/smoke detection using YOLOv8 with FastAPI backend   |    `Python` `JS` `Docker` `YOLO`     |
+
+</div>
+
+---
+
+## 📊 GitHub Stats
+
+<div align="center">
+
+<a href="https://github.com/Givaro-Ananta">
+  <img src="https://github-readme-stats-nine-tan-88.vercel.app/api?username=Givaro-Ananta&show_icons=true&rank_icon=github&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A855F7&icon_color=A855F7&text_color=C9D1D9&cache_seconds=86400" alt="GitHub Stats" height="170"/>
+</a>
+<a href="https://github.com/Givaro-Ananta">
+  <img src="https://github-readme-stats-nine-tan-88.vercel.app/api/top-langs/?username=Givaro-Ananta&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A855F7&text_color=C9D1D9&cache_seconds=86400&langs_count=8" alt="Top Languages" height="170"/>
+</a>
+
+<br/>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Givaro-Ananta/Gip-Space/output/github-contribution-grid-snake-dark.svg"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Givaro-Ananta/Gip-Space/output/github-contribution-grid-snake.svg"/>
+  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/Givaro-Ananta/Gip-Space/output/github-contribution-grid-snake.svg" width="100%"/>
+</picture>
+
+</div>
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
