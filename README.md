@@ -95,7 +95,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 <br/>
 
-**Built with 💜 by [Givaro Ananta](https://github.com/Givaro-Ananta)**
+**[Givaro Ananta](https://github.com/Givaro-Ananta)**
 
 <br/>
 
