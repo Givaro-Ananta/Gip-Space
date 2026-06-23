@@ -24,4 +24,13 @@ export const projects = [
         tags: ["Python", "JavaScript", "CSS", "HTML", "Dockerfile"],
         liveUrl: "https://fire-smoke-detection-xi.vercel.app/",
     },
+    {
+        title: "Dashboard Penjualan Apotek",
+        description:
+            "Dashboard analitik interaktif berbasis web untuk visualisasi data penjualan apotek di Indonesia selama tahun 2015, mencakup lebih dari 500.000 transaksi detail obat.",
+        image: "/porto-4.png",
+        tags: ["Next.js", "TypeScript", "Python", "Recharts"],
+        liveUrl: "https://dashboard-penjualan-apotek-tahun-20.vercel.app/",
+        githubUrl: "https://github.com/Givaro-Ananta/Dashboard-penjualan-apotek-tahun-2015.git",
+    },
 ]
