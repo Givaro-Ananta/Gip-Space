@@ -1,17 +1,19 @@
 "use client"
 
-import { useRef } from "react"
-import { motion, useInView } from "framer-motion"
+import { useRef, useState } from "react"
+import { motion, useInView, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { ExternalLink, ArrowRight } from "lucide-react"
+import { ExternalLink, ArrowRight, Info } from "lucide-react"
 import { projects } from "./data/projectsData"
+import ProjectDetailModal from "./ProjectDetailModal"
 
 const MAX_PREVIEW = 4
 
 export default function Projects() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const [selectedProject, setSelectedProject] = useState(null)
 
   const previewProjects = projects.slice(0, MAX_PREVIEW)
 
@@ -65,31 +67,50 @@ export default function Projects() {
             <motion.div
               key={project.title}
               variants={itemVariants}
-              className="bg-gray-800 rounded-xl overflow-hidden hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300"
+              className="bg-gray-800 rounded-xl overflow-hidden hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 flex flex-col h-full"
             >
-              <div className="relative h-60 overflow-hidden">
+              {/* Clickable Image Header */}
+              <div 
+                onClick={() => setSelectedProject(project)}
+                className="relative h-60 overflow-hidden cursor-pointer group"
+              >
                 <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-500 hover:scale-110"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-400 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="px-3 py-1 bg-gray-700 rounded-full text-xs">
-                      {tag}
-                    </span>
-                  ))}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="px-4 py-2 bg-purple-600/90 text-white font-medium text-sm rounded-lg backdrop-blur-sm transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-1.5">
+                    <Info size={16} />
+                    Lihat Detail
+                  </span>
                 </div>
-                <div className="flex gap-4">
+              </div>
+              
+              <div className="p-6 flex flex-col flex-1 justify-between">
+                <div>
+                  <h3 
+                    onClick={() => setSelectedProject(project)}
+                    className="text-xl font-bold mb-2 cursor-pointer hover:text-purple-400 transition-colors"
+                  >
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 mb-4 line-clamp-3">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="px-3 py-1 bg-gray-700 rounded-full text-xs text-gray-300">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex gap-6 items-center border-t border-gray-700/50 pt-4 mt-auto">
                   {project.liveUrl && project.liveUrl !== "#" && (
                     <a
                       href={project.liveUrl}
-                      className="flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors"
+                      className="flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors font-medium"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -97,6 +118,13 @@ export default function Projects() {
                       Live Demo
                     </a>
                   )}
+                  <button
+                    onClick={() => setSelectedProject(project)}
+                    className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-purple-400 transition-colors font-medium ml-auto"
+                  >
+                    <Info size={16} />
+                    Detail Project
+                  </button>
                 </div>
               </div>
             </motion.div>
@@ -111,13 +139,25 @@ export default function Projects() {
         >
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+            className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors font-medium"
           >
             View All Projects
             <ArrowRight size={16} />
           </Link>
         </motion.div>
       </div>
+
+      {/* Project Details Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <ProjectDetailModal
+            project={selectedProject}
+            isOpen={!!selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   )
 }
+
