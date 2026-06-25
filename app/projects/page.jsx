@@ -1,17 +1,19 @@
 "use client"
 
-import { useRef } from "react"
-import { motion, useInView } from "framer-motion"
+import { useRef, useState } from "react"
+import { motion, useInView, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { ExternalLink, ArrowLeft } from "lucide-react"
+import { ExternalLink, ArrowLeft, Info } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { projects } from "@/components/data/projectsData"
+import ProjectDetailModal from "@/components/ProjectDetailModal"
 
 export default function ProjectsPage() {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true, amount: 0.05 })
+    const [selectedProject, setSelectedProject] = useState(null)
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -76,9 +78,13 @@ export default function ProjectsPage() {
                             <motion.div
                                 key={project.title}
                                 variants={itemVariants}
-                                className="bg-gray-800/50 border border-gray-700/50 rounded-xl overflow-hidden hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/30 transition-all duration-300 group"
+                                className="bg-gray-800/50 border border-gray-700/50 rounded-xl overflow-hidden hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/30 transition-all duration-300 group flex flex-col h-full"
                             >
-                                <div className="relative h-52 overflow-hidden">
+                                {/* Clickable Image Header */}
+                                <div 
+                                    onClick={() => setSelectedProject(project)}
+                                    className="relative h-52 overflow-hidden cursor-pointer"
+                                >
                                     <Image
                                         src={project.image || "/placeholder.svg"}
                                         alt={project.title}
@@ -86,36 +92,57 @@ export default function ProjectsPage() {
                                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                </div>
-                                <div className="p-6">
-                                    <h3 className="text-lg font-bold mb-2 group-hover:text-purple-400 transition-colors">
-                                        {project.title}
-                                    </h3>
-                                    <p className="text-gray-400 text-sm mb-4 line-clamp-3">
-                                        {project.description}
-                                    </p>
-                                    <div className="flex flex-wrap gap-2 mb-5">
-                                        {project.tags.map((tag) => (
-                                            <span
-                                                key={tag}
-                                                className="px-2.5 py-1 bg-gray-700/70 rounded-full text-xs text-gray-300"
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
+                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                        <span className="px-4 py-2 bg-purple-600/90 text-white font-medium text-sm rounded-lg backdrop-blur-sm transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-1.5">
+                                            <Info size={16} />
+                                            Lihat Detail
+                                        </span>
                                     </div>
-                                    <div className="flex gap-4">
+                                </div>
+                                
+                                <div className="p-6 flex flex-col flex-1 justify-between">
+                                    <div>
+                                        <h3 
+                                            onClick={() => setSelectedProject(project)}
+                                            className="text-lg font-bold mb-2 group-hover:text-purple-400 cursor-pointer transition-colors"
+                                        >
+                                            {project.title}
+                                        </h3>
+                                        <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+                                            {project.description}
+                                        </p>
+                                        <div className="flex flex-wrap gap-2 mb-5">
+                                            {project.tags.map((tag) => (
+                                                <span
+                                                    key={tag}
+                                                    className="px-2.5 py-1 bg-gray-700/70 rounded-full text-xs text-gray-300"
+                                                >
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="flex gap-4 items-center border-t border-gray-700/50 pt-4 mt-auto">
                                         {project.liveUrl && project.liveUrl !== "#" && (
                                             <a
                                                 href={project.liveUrl}
-                                                className="flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors"
+                                                className="flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors font-medium"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
+                                                id={`project-live-${project.title.toLowerCase().replace(/\s+/g, '-')}`}
                                             >
                                                 <ExternalLink size={16} />
                                                 Live Demo
                                             </a>
                                         )}
+                                        <button
+                                            onClick={() => setSelectedProject(project)}
+                                            className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-purple-400 transition-colors font-medium ml-auto"
+                                        >
+                                            <Info size={16} />
+                                            Detail Project
+                                        </button>
                                     </div>
                                 </div>
                             </motion.div>
@@ -124,6 +151,17 @@ export default function ProjectsPage() {
                 </div>
             </section>
             <Footer />
+
+            {/* Project Details Modal */}
+            <AnimatePresence>
+                {selectedProject && (
+                    <ProjectDetailModal
+                        project={selectedProject}
+                        isOpen={!!selectedProject}
+                        onClose={() => setSelectedProject(null)}
+                    />
+                )}
+            </AnimatePresence>
         </main>
     )
 }

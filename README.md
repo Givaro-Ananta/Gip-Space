@@ -78,6 +78,30 @@
 |   1   |     **Dashboard Analisis Gaji**      | Salary analysis dashboard for a government office in Lampung 2025<br/>*(dashboard ini tidak bisa dipublish karena mengandung data sensitif)* | `Python` `Streamlit` `Data Analysis` |
 |   2   | [**Text Feedback Sentiment Analyzer**](https://nlp-project-chi.vercel.app/) | NLP-powered customer feedback sentiment detection using Naive Bayes |     `Python` `NLP` `ML` `React`      |
 |   3   | [**Fire & Smoke Detection**](https://fire-smoke-detection-xi.vercel.app/) |  Real-time fire/smoke detection using YOLOv8 with FastAPI backend   |    `Python` `JS` `Docker` `YOLO`     |
+|   4   | [**Dashboard Penjualan Apotek**](https://dashboard-penjualan-apotek-tahun-20.vercel.app/) | Interactive web-based analytical dashboard for pharmacy sales in 2015 | `Next.js` `TypeScript` `Python` `Recharts` |
+
+</div>
+
+---
+
+## 📊 GitHub Stats
+
+<div align="center">
+
+<a href="https://github.com/Givaro-Ananta">
+  <img src="https://github-readme-stats-nine-tan-88.vercel.app/api?username=Givaro-Ananta&show_icons=true&rank_icon=github&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A855F7&icon_color=A855F7&text_color=C9D1D9&cache_seconds=86400" alt="GitHub Stats" height="170"/>
+</a>
+<a href="https://github.com/Givaro-Ananta">
+  <img src="https://github-readme-stats-nine-tan-88.vercel.app/api/top-langs/?username=Givaro-Ananta&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A855F7&text_color=C9D1D9&cache_seconds=86400&langs_count=8" alt="Top Languages" height="170"/>
+</a>
+
+<br/>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Givaro-Ananta/Gip-Space/output/github-contribution-grid-snake-dark.svg"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Givaro-Ananta/Gip-Space/output/github-contribution-grid-snake.svg"/>
+  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/Givaro-Ananta/Gip-Space/output/github-contribution-grid-snake.svg" width="100%"/>
+</picture>
 
 </div>
 
