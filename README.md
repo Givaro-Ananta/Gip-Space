@@ -79,6 +79,7 @@
 |   2   | [**Text Feedback Sentiment Analyzer**](https://nlp-project-chi.vercel.app/) | NLP-powered customer feedback sentiment detection using Naive Bayes |     `Python` `NLP` `ML` `React`      |
 |   3   | [**Fire & Smoke Detection**](https://fire-smoke-detection-xi.vercel.app/) |  Real-time fire/smoke detection using YOLOv8 with FastAPI backend   |    `Python` `JS` `Docker` `YOLO`     |
 |   4   | [**Dashboard Penjualan Apotek**](https://dashboard-penjualan-apotek-tahun-20.vercel.app/) | Interactive web-based analytical dashboard for pharmacy sales in 2015 | `Next.js` `TypeScript` `Python` `Recharts` |
+|   5   | [**Satria Data 2026 — Forecasting Harga Pangan**](https://satria-data-2026.vercel.app/) | Time series analysis and forecasting of Indonesian food commodity prices using SARIMA, ETS, and Prophet, with an interactive dashboard<br/>*(submission untuk kompetisi Satria Data 2026)* | `Next.js` `FastAPI` `Python` `Prophet` |
 
 </div>
 

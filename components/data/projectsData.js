@@ -123,5 +123,43 @@ export const projects = [
             "4. Agregasi & Export: Agregasi per dimensi waktu, produk, dokter, dan waktu sibuk ke file JSON siap saji di folder output/.",
             "5. Visualisasi Dashboard: Loading data JSON ke frontend Next.js + Recharts untuk grafik interaktif yang responsif."
         ]
+    },
+    {
+        title: "Satria Data 2026 — Forecasting Harga Pangan",
+        description:
+            "Time series analysis and forecasting of Indonesian food commodity prices using SARIMA, ETS, and Prophet, with an interactive dashboard (submission untuk kompetisi Satria Data 2026)",
+        image: "/porto-5.png",
+        tags: ["Next.js", "FastAPI", "Python", "Prophet"],
+        liveUrl: "https://satria-data-2026.vercel.app",
+        githubUrl: "https://github.com/Givaro-Ananta/Satria-Data-2026.git",
+        longDescription:
+            "Proyek ini merupakan submission untuk kompetisi Satria Data 2026, berfokus pada analisis deret waktu dan peramalan harga 11 komoditas pangan strategis di Indonesia untuk periode 2026-2045. Menggunakan tiga model forecasting utama (SARIMA, ETS, dan Prophet) serta menyediakan dashboard interaktif untuk simulasi skenario secara real-time.",
+        features: [
+            "📈 Forecasting Jangka Panjang — Prediksi harga pangan 2026–2030 (menengah) hingga 2031–2045 (3 skenario: baseline, optimistis, pesimistis).",
+            "💻 Retraining Real-time — Dashboard interaktif untuk simulasi skenario kustom dengan memasukkan data tambahan atau unggah file CSV.",
+            "📊 Composite Food Price Index (CFPI) — Indeks gabungan harga pangan untuk melihat tren inflasi pangan nasional secara agregat.",
+            "🔍 Analisis Tren Otomatis — Interpretasi naratif otomatis mengenai arah pergerakan harga dan laju perubahan.",
+            "📱 Tampilan Responsif — Antarmuka modern yang ramah pengguna baik di desktop maupun perangkat mobile."
+        ],
+        techStackDetailed: {
+            frontend: [
+                { name: "Next.js", version: "16", function: "Framework Web & Interface Utama" },
+                { name: "Tailwind CSS", version: "4.x", function: "Styling layout & komponen" },
+                { name: "Chart.js", version: "4.x", function: "Visualisasi Grafik Deret Waktu" }
+            ],
+            backend: [
+                { name: "FastAPI", version: "—", function: "Server API & Event Retraining" },
+                { name: "Python", version: "3.x", function: "Bahasa Pemrograman Utama" },
+                { name: "Prophet (Meta)", version: "—", function: "Model Peramalan Berbasis Additive" },
+                { name: "Statsmodels", version: "—", function: "Library Modeling SARIMA & ETS" }
+            ]
+        },
+        pipeline: [
+            "1. Eksplorasi Data (EDA): Menganalisis pola musiman, tren, dan menguji stasioneritas data historis menggunakan ADF & KPSS Test.",
+            "2. Preprocessing & Pembersihan: Melakukan interpolasi nilai hilang, rekonstruksi data 2024-2026, penanganan outlier, serta data differencing.",
+            "3. Modeling & Evaluasi: Membangun model SARIMA, ETS, dan Prophet per komoditas, lalu memilih model terbaik dengan nilai MAPE terkecil.",
+            "4. Proyeksi Skenario & Indeks: Membuat simulasi 3 skenario jangka panjang (sampai 2045) dan menghitung Composite Food Price Index (CFPI).",
+            "5. Integrasi Dashboard: Menyediakan visualisasi dinamis Next.js yang terhubung dengan API FastAPI untuk retraining on-the-fly."
+        ]
     }
 ]
