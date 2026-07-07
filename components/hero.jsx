@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ArrowDown } from "lucide-react";
 import Link from "next/link";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
@@ -14,6 +14,7 @@ const TEXT_TERTIARY = "text-gray-400";
 export default function Hero() {
   const textRef = useRef(null);
   const sectionRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Scroll-driven parallax untuk hero
   const { scrollYProgress } = useScroll({
@@ -28,6 +29,14 @@ export default function Hero() {
   const y = useSpring(rawY, { stiffness: 80, damping: 20 });
   const opacity = useSpring(rawOpacity, { stiffness: 80, damping: 20 });
   const scale = useSpring(rawScale, { stiffness: 80, damping: 20 });
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 768px)");
+    setIsMobile(media.matches);
+    const listener = (e) => setIsMobile(e.matches);
+    media.addEventListener("change", listener);
+    return () => media.removeEventListener("change", listener);
+  }, []);
 
   useEffect(() => {
     const textElement = textRef.current;
@@ -77,7 +86,7 @@ export default function Hero() {
     >
       {/* Velocity-driven parallax content wrapper */}
       <motion.div
-        style={{ y, opacity, scale }}
+        style={isMobile ? {} : { y, opacity, scale }}
         className="container px-4 md:px-6 z-10"
       >
         <motion.span
@@ -143,7 +152,7 @@ export default function Hero() {
       </motion.div>
 
       <motion.div
-        style={{ opacity }}
+        style={isMobile ? {} : { opacity }}
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
       >
         <a href="#about" className={`${TEXT_TERTIARY} hover:${TEXT_PRIMARY} transition-colors`}>
