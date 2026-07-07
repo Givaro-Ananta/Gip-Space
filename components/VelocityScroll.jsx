@@ -53,15 +53,16 @@ export function FadeUp({ children, className = "", delay = 0 }) {
 export function SlideIn({ children, className = "", delay = 0, from = "left" }) {
   const x = from === "left" ? -80 : 80;
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, x }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: false, amount: 0.15 }}
-      transition={{ type: "spring", damping: 24, stiffness: 100, delay }}
-    >
-      {children}
-    </motion.div>
+    <div className={`overflow-hidden ${className}`}>
+      <motion.div
+        initial={{ opacity: 0, x }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: false, amount: 0.15 }}
+        transition={{ type: "spring", damping: 24, stiffness: 100, delay }}
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 }
 

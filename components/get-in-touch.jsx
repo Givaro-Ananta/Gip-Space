@@ -1,8 +1,8 @@
-﻿"use client";
+"use client";
 
 import { Send, Mail, MapPin } from "lucide-react";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
-import { FadeUp, SlideIn, ZoomIn } from "@/components/VelocityScroll";
+import { FadeUp, SlideIn } from "@/components/VelocityScroll";
 
 const socialLinks = [
   { href: "https://github.com/Givaro-Ananta", icon: FaGithub, label: "GitHub" },
@@ -37,7 +37,6 @@ export default function GetInTouch() {
             <div>
               <h3 className="text-xl font-semibold mb-6">How to Reach Me</h3>
               <div className="space-y-6">
-                <ZoomIn delay={0.15}>
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-gray-800 rounded-lg text-purple-500 shrink-0">
                       <Mail size={20} />
@@ -49,8 +48,6 @@ export default function GetInTouch() {
                       </a>
                     </div>
                   </div>
-                </ZoomIn>
-                <ZoomIn delay={0.22}>
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-gray-800 rounded-lg text-purple-500">
                       <MapPin size={20} />
@@ -60,23 +57,21 @@ export default function GetInTouch() {
                       <p className="text-gray-400">Lampung, Indonesia</p>
                     </div>
                   </div>
-                </ZoomIn>
               </div>
               <div className="mt-10">
                 <h3 className="text-xl font-semibold mb-4">Follow Me</h3>
                 <div className="flex gap-4">
-                  {socialLinks.map((link, i) => (
-                    <ZoomIn key={link.label} delay={0.1 + i * 0.08}>
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={link.label}
-                        className="p-3 bg-gray-800 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-all"
-                      >
-                        <link.icon size={20} />
-                      </a>
-                    </ZoomIn>
+                  {socialLinks.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={link.label}
+                      className="p-3 bg-gray-800 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-all"
+                    >
+                      <link.icon size={20} />
+                    </a>
                   ))}
                 </div>
               </div>
