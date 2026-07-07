@@ -1,8 +1,8 @@
-"use client";
+﻿"use client";
 
 import { Send, Mail, MapPin } from "lucide-react";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
-import { useState } from "react";
+import { FadeUp, SlideIn, ZoomIn } from "@/components/VelocityScroll";
 
 const socialLinks = [
   { href: "https://github.com/Givaro-Ananta", icon: FaGithub, label: "GitHub" },
@@ -11,155 +11,115 @@ const socialLinks = [
 ];
 
 export default function GetInTouch() {
-  const [submitted, setSubmitted] = useState(false);
-
   return (
     <section id="contact" className="py-20 bg-gray-950">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Get In{" "}
-            <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
-              Touch
-            </span>
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? Feel free to reach
-            out to me using the form below or through my contact information.
-          </p>
-        </div>
+
+        <FadeUp>
+          <div className="text-center mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Get In{" "}
+              <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
+                Touch
+              </span>
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Have a project in mind or want to collaborate? Feel free to reach
+              out to me using the form below or through my contact information.
+            </p>
+          </div>
+        </FadeUp>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Info */}
-          <div>
-            <h3 className="text-xl font-semibold mb-6">How to Reach Me</h3>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-gray-800 rounded-lg text-purple-500 shrink-0">
-                  <Mail size={20} />
-                </div>
-                <div>
-                  <h4 className="font-medium mb-1">Email</h4>
-                  <a
-                    href="mailto:givaroananta02@gmail.com"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    givaroananta02@gmail.com
-                  </a>
-                </div>
+          {/* Info — slide dari kiri */}
+          <SlideIn from="left" delay={0.1}>
+            <div>
+              <h3 className="text-xl font-semibold mb-6">How to Reach Me</h3>
+              <div className="space-y-6">
+                <ZoomIn delay={0.15}>
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-gray-800 rounded-lg text-purple-500 shrink-0">
+                      <Mail size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-medium mb-1">Email</h4>
+                      <a href="mailto:givaroananta02@gmail.com" className="text-gray-400 hover:text-white transition-colors">
+                        givaroananta02@gmail.com
+                      </a>
+                    </div>
+                  </div>
+                </ZoomIn>
+                <ZoomIn delay={0.22}>
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-gray-800 rounded-lg text-purple-500">
+                      <MapPin size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-medium mb-1">Location</h4>
+                      <p className="text-gray-400">Lampung, Indonesia</p>
+                    </div>
+                  </div>
+                </ZoomIn>
               </div>
-
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-gray-800 rounded-lg text-purple-500">
-                  <MapPin size={20} />
-                </div>
-                <div>
-                  <h4 className="font-medium mb-1">Location</h4>
-                  <p className="text-gray-400">Lampung, Indonesia</p>
+              <div className="mt-10">
+                <h3 className="text-xl font-semibold mb-4">Follow Me</h3>
+                <div className="flex gap-4">
+                  {socialLinks.map((link, i) => (
+                    <ZoomIn key={link.label} delay={0.1 + i * 0.08}>
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={link.label}
+                        className="p-3 bg-gray-800 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-all"
+                      >
+                        <link.icon size={20} />
+                      </a>
+                    </ZoomIn>
+                  ))}
                 </div>
               </div>
             </div>
+          </SlideIn>
 
-            <div className="mt-10">
-              <h3 className="text-xl font-semibold mb-4">Follow Me</h3>
-              <div className="flex gap-4">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={link.label}
-                    className="p-3 bg-gray-800 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-all"
-                  >
-                    <link.icon size={20} />
-                  </a>
-                ))}
-              </div>
+          {/* Form — slide dari kanan */}
+          <SlideIn from="right" delay={0.15}>
+            <div>
+              <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6">
+                <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_KEY || ""} />
+                <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2">Your Name</label>
+                    <input type="text" id="name" name="name" required
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all" />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">Your Email</label>
+                    <input type="email" id="email" name="email" required
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all" />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject</label>
+                  <input type="text" id="subject" name="subject" required
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all" />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
+                  <textarea id="message" name="message" required rows={5}
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-none" />
+                </div>
+                <button type="submit"
+                  className="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 transition-all flex items-center justify-center gap-2 hover:scale-[1.02]">
+                  Send Message
+                  <Send size={16} />
+                </button>
+              </form>
             </div>
-          </div>
+          </SlideIn>
 
-          {/* Form — uses native HTML action, no JS fetch */}
-          <div>
-            <form
-              action="https://api.web3forms.com/submit"
-              method="POST"
-              className="space-y-6"
-            >
-              <input
-                type="hidden"
-                name="access_key"
-                value={process.env.NEXT_PUBLIC_WEB3FORMS_KEY || ""}
-              />
-              <input
-                type="hidden"
-                name="redirect"
-                value="https://web3forms.com/success"
-              />
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Your Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  required
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 transition-all flex items-center justify-center gap-2"
-              >
-                Send Message
-                <Send size={16} />
-              </button>
-            </form>
-          </div>
         </div>
       </div>
     </section>

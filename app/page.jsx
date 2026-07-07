@@ -8,6 +8,7 @@ import Skills from "@/components/skills"
 import Projects from "@/components/projects"
 import Contact from "@/components/get-in-touch"
 import Footer from "@/components/footer"
+import { ScrollProgressBar } from "@/components/VelocityScroll"
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -18,6 +19,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
+      <ScrollProgressBar />
       <Navbar />
       <div className={`transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
         <Hero />

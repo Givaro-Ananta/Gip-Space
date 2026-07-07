@@ -1,73 +1,42 @@
 "use client"
 
-import { useRef, useState } from "react"
-import { motion, useInView, AnimatePresence } from "framer-motion"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { ExternalLink, ArrowRight, Info } from "lucide-react"
 import { projects } from "./data/projectsData"
 import ProjectDetailModal from "./ProjectDetailModal"
+import { FadeUp, StaggerContainer, StaggerItem } from "@/components/VelocityScroll"
 
 const MAX_PREVIEW = 4
 
 export default function Projects() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
   const [selectedProject, setSelectedProject] = useState(null)
-
   const previewProjects = projects.slice(0, MAX_PREVIEW)
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  }
 
   return (
     <section id="projects" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5 }}
-            className="text-2xl md:text-3xl font-bold mb-4"
-          >
-            My{" "}
-            <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">Projects</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-gray-400 max-w-2xl mx-auto"
-          >
-            Here are some of my recent projects. Each project showcases different skills and technologies I've worked
-            with.
-          </motion.p>
-        </div>
+        <FadeUp>
+          <div className="text-center mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              My{" "}
+              <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">Projects</span>
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Here are some of my recent projects. Each project showcases different skills and technologies I&apos;ve worked
+              with.
+            </p>
+          </div>
+        </FadeUp>
 
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {previewProjects.map((project) => (
+            <StaggerItem key={project.title}>
             <motion.div
-              key={project.title}
-              variants={itemVariants}
               className="bg-gray-800 rounded-xl overflow-hidden hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 flex flex-col h-full"
+              whileHover={{ y: -4, transition: { type: "spring", stiffness: 200 } }}
             >
               {/* Clickable Image Header */}
               <div 
@@ -128,23 +97,21 @@ export default function Projects() {
                 </div>
               </div>
             </motion.div>
+            </StaggerItem>
           ))}
-        </motion.div>
+        </StaggerContainer>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="text-center mt-12"
-        >
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors font-medium"
-          >
-            View All Projects
-            <ArrowRight size={16} />
-          </Link>
-        </motion.div>
+        <FadeUp delay={0.2}>
+          <div className="text-center mt-12">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors font-medium"
+            >
+              View All Projects
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </FadeUp>
       </div>
 
       {/* Project Details Modal */}
