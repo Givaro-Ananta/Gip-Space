@@ -12,7 +12,7 @@ const socialLinks = [
 
 export default function GetInTouch() {
   return (
-    <section id="contact" className="py-20 bg-gray-950">
+    <section id="contact" className="py-20 bg-gray-950 overflow-x-hidden">
       <div className="container mx-auto px-4 md:px-6">
 
         <FadeUp>
@@ -80,31 +80,43 @@ export default function GetInTouch() {
 
           {/* Form — slide dari kanan */}
           <SlideIn from="right" delay={0.15}>
-            <div>
-              <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6">
+            <div style={{ overflow: "visible" }}>
+              <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6" style={{ overflow: "visible" }}>
                 <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_KEY || ""} />
                 <input type="hidden" name="redirect" value="https://web3forms.com/success" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">Your Name</label>
                     <input type="text" id="name" name="name" required
-                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all" />
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500 transition-all"
+                      style={{ boxSizing: "border-box" }}
+                      onFocus={e => e.target.style.boxShadow = "0 0 0 2px rgba(168,85,247,0.5)"}
+                      onBlur={e => e.target.style.boxShadow = "none"} />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium mb-2">Your Email</label>
                     <input type="email" id="email" name="email" required
-                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all" />
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500 transition-all"
+                      style={{ boxSizing: "border-box" }}
+                      onFocus={e => e.target.style.boxShadow = "0 0 0 2px rgba(168,85,247,0.5)"}
+                      onBlur={e => e.target.style.boxShadow = "none"} />
                   </div>
                 </div>
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject</label>
                   <input type="text" id="subject" name="subject" required
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all" />
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500 transition-all"
+                    style={{ boxSizing: "border-box" }}
+                    onFocus={e => e.target.style.boxShadow = "0 0 0 2px rgba(168,85,247,0.5)"}
+                    onBlur={e => e.target.style.boxShadow = "none"} />
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
                   <textarea id="message" name="message" required rows={5}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-none" />
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500 transition-all resize-none"
+                    style={{ boxSizing: "border-box" }}
+                    onFocus={e => e.target.style.boxShadow = "0 0 0 2px rgba(168,85,247,0.5)"}
+                    onBlur={e => e.target.style.boxShadow = "none"} />
                 </div>
                 <button type="submit"
                   className="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 transition-all flex items-center justify-center gap-2 hover:scale-[1.02]">

@@ -82,7 +82,7 @@ export function SlideIn({ children, className = "", delay = 0, from = "left", on
   const x = from === "left" ? -80 : 80;
   const mobileX = from === "left" ? -35 : 35;
   return (
-    <div className={`overflow-clip ${className}`}>
+    <div className={className}>
       <motion.div
         initial={{ opacity: 0, x: isMobile ? mobileX : x }}
         whileInView={{ opacity: 1, x: 0 }}
