@@ -84,6 +84,8 @@ export default function GetInTouch() {
               <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6" style={{ overflow: "visible" }}>
                 <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_KEY || ""} />
                 <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+                <input type="hidden" name="from_name" value="Gip's Portfolio - Contact Form" />
+                <input type="hidden" name="subject" value="New message from your portfolio" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">Your Name</label>
