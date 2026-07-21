@@ -24,11 +24,25 @@ const inputClass =
 
 export default function GetInTouch() {
   const formRef = useRef(null);
+  const timeRef = useRef(null);
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("loading");
+
+    // Inject current timestamp into hidden field
+    if (timeRef.current) {
+      timeRef.current.value = new Date().toLocaleString("en-GB", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZoneName: "short",
+      });
+    }
 
     try {
       await emailjs.sendForm(
@@ -118,6 +132,7 @@ export default function GetInTouch() {
           <SlideIn from="right" delay={0.15}>
             <div>
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                <input type="hidden" name="time" ref={timeRef} />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="from_name" className="block text-sm font-medium mb-2">Your Name</label>
