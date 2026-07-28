@@ -129,7 +129,7 @@ export const projects = [
         description:
             "Time series analysis and forecasting of Indonesian food commodity prices using SARIMA, ETS, and Prophet, with an interactive dashboard (submission untuk kompetisi Satria Data 2026)",
         image: "/porto-5.png",
-        tags: ["Next.js", "FastAPI", "Python", "Prophet", "Data Analyst", "Machine Learning", "Forecasting", "Time Series"],
+        tags: ["Next.js", "FastAPI", "Python", "Data Analyst", "Machine Learning", "Forecasting", "Time Series"],
         liveUrl: "https://satria-data-2026.vercel.app",
         githubUrl: "https://github.com/Givaro-Ananta/Satria-Data-2026.git",
         longDescription:
