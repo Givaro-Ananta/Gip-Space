@@ -90,7 +90,7 @@ export const projects = [
         description:
             "Dashboard analitik interaktif berbasis web untuk visualisasi data penjualan apotek di Indonesia selama tahun 2015, mencakup lebih dari 500.000 transaksi detail obat.",
         image: "/porto-4.png",
-        tags: ["Next.js", "TypeScript", "Python", "Recharts"],
+        tags: ["Next.js", "TypeScript", "Python", "Recharts", "Pandas", "Machine Learning", "Data Analyst"],
         liveUrl: "https://dashboard-penjualan-apotek-tahun-20.vercel.app/",
         githubUrl: "https://github.com/Givaro-Ananta/Dashboard-penjualan-apotek-tahun-2015.git",
         longDescription:
@@ -129,11 +129,11 @@ export const projects = [
         description:
             "Time series analysis and forecasting of Indonesian food commodity prices using SARIMA, ETS, and Prophet, with an interactive dashboard (submission untuk kompetisi Satria Data 2026)",
         image: "/porto-5.png",
-        tags: ["Next.js", "FastAPI", "Python", "Prophet"],
+        tags: ["Next.js", "FastAPI", "Python", "Prophet", "Data Analyst", "Machine Learning", "Forecasting", "Time Series"],
         liveUrl: "https://satria-data-2026.vercel.app",
         githubUrl: "https://github.com/Givaro-Ananta/Satria-Data-2026.git",
         longDescription:
-            "Proyek ini merupakan submission untuk kompetisi Satria Data 2026, berfokus pada analisis deret waktu dan peramalan harga 11 komoditas pangan strategis di Indonesia untuk periode 2026-2045. Menggunakan tiga model forecasting utama (SARIMA, ETS, dan Prophet) serta menyediakan dashboard interaktif untuk simulasi skenario secara real-time.",
+            "Proyek ini merupakan submission untuk kompetisi Satria Data 2026, berfokus pada analisis deret waktu dan peramalan harga 8 komoditas pangan strategis di Indonesia untuk periode 2026-2045. Menggunakan tiga model forecasting utama (SARIMA, ETS, dan Prophet) serta menyediakan dashboard interaktif untuk simulasi skenario secara real-time.",
         features: [
             "📈 Forecasting Jangka Panjang — Prediksi harga pangan 2026–2030 (menengah) hingga 2031–2045 (3 skenario: baseline, optimistis, pesimistis).",
             "💻 Retraining Real-time — Dashboard interaktif untuk simulasi skenario kustom dengan memasukkan data tambahan atau unggah file CSV.",
