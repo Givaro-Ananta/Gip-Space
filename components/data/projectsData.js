@@ -9,10 +9,10 @@ export const projects = [
         longDescription:
             "Dashboard interaktif untuk visualisasi dan analisis data penggajian pegawai negeri di lingkungan pemerintah provinsi Lampung tahun 2025. Proyek ini memvisualisasikan data anggaran belanja pegawai secara transparan guna membantu instansi dinas dalam memantau tren pengeluaran daerah secara efisien.",
         features: [
-            "📊 Visualisasi total pengeluaran gaji bulanan secara real-time.",
-            "🔍 Pencarian & filter interaktif berdasarkan golongan pangkat, jenis jabatan, dan instansi dinas.",
-            "📈 Analisis tren kenaikan gaji berkala tahunan.",
-            "💼 Breakdown detail tunjangan jabatan, tunjangan keluarga, dan tunjangan fungsional."
+            "Visualisasi total pengeluaran gaji bulanan secara real-time.",
+            "Pencarian & filter interaktif berdasarkan golongan pangkat, jenis jabatan, dan instansi dinas.",
+            "Analisis tren kenaikan gaji berkala tahunan.",
+            "Breakdown detail tunjangan jabatan, tunjangan keluarga, dan tunjangan fungsional."
         ],
         techStackDetailed: {
             frontend: [
@@ -37,10 +37,10 @@ export const projects = [
         longDescription:
             "Aplikasi web analitik sentimen berbasis NLP (Natural Language Processing) untuk mendeteksi tingkat kepuasan pelanggan secara instan. Menggunakan model klasifikasi Machine Learning Naive Bayes yang dilatih dengan teks ulasan pelanggan untuk mengategorikan respons ke dalam kategori Positif, Negatif, atau Netral.",
         features: [
-            "📝 Input ulasan teks secara langsung untuk prediksi sentimen instan.",
-            "📊 Visualisasi grafik sebaran skor sentimen (Positif, Netral, Negatif).",
-            "🧪 Word Cloud generator untuk menampilkan kata kunci terpopuler dari ulasan.",
-            "📈 Grafik tren fluktuasi kepuasan pelanggan dari waktu ke waktu."
+            "Input ulasan teks secara langsung untuk prediksi sentimen instan.",
+            "Visualisasi grafik sebaran skor sentimen (Positif, Netral, Negatif).",
+            "Word Cloud generator untuk menampilkan kata kunci terpopuler dari ulasan.",
+            "Grafik tren fluktuasi kepuasan pelanggan dari waktu ke waktu."
         ],
         techStackDetailed: {
             frontend: [
@@ -66,10 +66,10 @@ export const projects = [
         longDescription:
             "Sistem Vision AI canggih berbasis Deep Learning yang melatih model deteksi objek YOLOv8 untuk mengenali indikasi kebakaran (api dan asap) secara real-time. Memanfaatkan feed dari kamera CCTV / webcam lokal, sistem mengirimkan sinyal deteksi instan untuk meminimalkan keterlambatan penanganan bencana.",
         features: [
-            "📹 Deteksi api & asap real-time dari kamera live feed atau file video.",
-            "⚡ Latensi minimal dengan throughput FPS (Frames Per Second) tinggi.",
-            "🚨 Bounding box pelacak otomatis beserta persentase kecocokan model (confidence score).",
-            "🐳 Dockerized environment untuk kemudahan deployment lintas server."
+            "Deteksi api & asap real-time dari kamera live feed atau file video.",
+            "Latensi minimal dengan throughput FPS (Frames Per Second) tinggi.",
+            "Bounding box pelacak otomatis beserta persentase kecocokan model (confidence score).",
+            "Dockerized environment untuk kemudahan deployment lintas server."
         ],
         techStackDetailed: {
             frontend: [
@@ -96,11 +96,11 @@ export const projects = [
         longDescription:
             "Dashboard analitik interaktif berbasis web untuk visualisasi data penjualan apotek di Indonesia selama periode Januari – Desember 2015. Sistem mengolah data mentah sebesar ~70MB SQL dump (511.000+ baris transaksi) menggunakan pipeline pemrosesan data ETL Python, kemudian menyajikannya ke dalam visualisasi dinamis berbasis Next.js untuk menganalisis performa bisnis apotek.",
         features: [
-            "📈 Performa Keuangan — Tren pendapatan bulanan, total omzet, akumulasi margin keuntungan, serta rata-rata nilai resep.",
-            "💊 Analisis Produk — Menampilkan Top 10 produk obat terlaris berdasarkan qty/nilai jual, sebaran kategori obat, serta analisis margin per produk.",
-            "👨‍⚕️ Analisis Dokter — Peringkat performa resep per dokter beserta nilai rata-rata resep yang ditulis.",
-            "⏰ Waktu Sibuk (Peak Hours) — Heatmap transaksi per hari dalam seminggu dan sebaran transaksi per jam operasional apotek.",
-            "🔄 Pipeline ETL Visual — Flowchart interaktif yang menjelaskan tahapan ETL dari database mentah ke file JSON dashboard."
+            "Performa Keuangan — Tren pendapatan bulanan, total omzet, akumulasi margin keuntungan, serta rata-rata nilai resep.",
+            "Analisis Produk — Menampilkan Top 10 produk obat terlaris berdasarkan qty/nilai jual, sebaran kategori obat, serta analisis margin per produk.",
+            "Analisis Dokter — Peringkat performa resep per dokter beserta nilai rata-rata resep yang ditulis.",
+            "Waktu Sibuk (Peak Hours) — Heatmap transaksi per hari dalam seminggu dan sebaran transaksi per jam operasional apotek.",
+            "Pipeline ETL Visual — Flowchart interaktif yang menjelaskan tahapan ETL dari database mentah ke file JSON dashboard."
         ],
         techStackDetailed: {
             frontend: [
@@ -135,11 +135,11 @@ export const projects = [
         longDescription:
             "Proyek ini merupakan submission untuk kompetisi Satria Data 2026, berfokus pada analisis deret waktu dan peramalan harga 8 komoditas pangan strategis di Indonesia untuk periode 2026-2045. Menggunakan tiga model forecasting utama (SARIMA, ETS, dan Prophet) serta menyediakan dashboard interaktif untuk simulasi skenario secara real-time.",
         features: [
-            "📈 Forecasting Jangka Panjang — Prediksi harga pangan 2026–2030 (menengah) hingga 2031–2045 (3 skenario: baseline, optimistis, pesimistis).",
-            "💻 Retraining Real-time — Dashboard interaktif untuk simulasi skenario kustom dengan memasukkan data tambahan atau unggah file CSV.",
-            "📊 Composite Food Price Index (CFPI) — Indeks gabungan harga pangan untuk melihat tren inflasi pangan nasional secara agregat.",
-            "🔍 Analisis Tren Otomatis — Interpretasi naratif otomatis mengenai arah pergerakan harga dan laju perubahan.",
-            "📱 Tampilan Responsif — Antarmuka modern yang ramah pengguna baik di desktop maupun perangkat mobile."
+            "Forecasting Jangka Panjang — Prediksi harga pangan 2026–2030 (menengah) hingga 2031–2045 (3 skenario: baseline, optimistis, pesimistis).",
+            "Retraining Real-time — Dashboard interaktif untuk simulasi skenario kustom dengan memasukkan data tambahan atau unggah file CSV.",
+            "Composite Food Price Index (CFPI) — Indeks gabungan harga pangan untuk melihat tren inflasi pangan nasional secara agregat.",
+            "Analisis Tren Otomatis — Interpretasi naratif otomatis mengenai arah pergerakan harga dan laju perubahan.",
+            "Tampilan Responsif — Antarmuka modern yang ramah pengguna baik di desktop maupun perangkat mobile."
         ],
         techStackDetailed: {
             frontend: [
