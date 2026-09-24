@@ -12,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark scroll-smooth">
-      <body className={`${inter.className} bg-gray-950 text-gray-100 antialiased overflow-x-hidden`}>
+      <body className={`${inter.className} bg-gray-950 text-gray-100 antialiased`}>
         {children}
         <Analytics />
       </body>
