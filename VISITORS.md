@@ -30,6 +30,8 @@ separate from production. The file backend is for a single local dev server.
    - `UPSTASH_REDIS_REST_URL`: the database REST URL.
    - `UPSTASH_REDIS_REST_TOKEN`: the database REST token.
    - `VISITOR_COUNTER_KEY`: `gip-space:total-visits:v1` (optional default).
+   Vercel Marketplace may instead create `KV_REST_API_URL` and `KV_REST_API_TOKEN`;
+   these names are also supported, so no duplicate credentials are needed.
 3. Redeploy. Empty storage starts at 158; the first new browser visit makes it 159.
 4. Use another database or a different `VISITOR_COUNTER_KEY` for Preview deployments.
 

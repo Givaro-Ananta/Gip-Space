@@ -17,6 +17,8 @@ before(async () => {
   process.env.VISITOR_DATA_FILE = path.join(directory, "visitors.json")
   delete process.env.UPSTASH_REDIS_REST_URL
   delete process.env.UPSTASH_REDIS_REST_TOKEN
+  delete process.env.KV_REST_API_URL
+  delete process.env.KV_REST_API_TOKEN
 })
 after(async () => {
   globalThis.fetch = originalFetch
@@ -94,4 +96,22 @@ test("Redis uses atomic duplicate registration and validates the response", asyn
   globalThis.fetch = originalFetch
   delete process.env.UPSTASH_REDIS_REST_URL
   delete process.env.UPSTASH_REDIS_REST_TOKEN
+})
+
+
+test("Vercel Marketplace KV environment variables connect to the same Redis backend", async () => {
+  process.env.KV_REST_API_URL = "https://example.upstash.io"
+  process.env.KV_REST_API_TOKEN = "marketplace-test-token"
+  globalThis.fetch = async (url, options) => {
+    assert.equal(url, "https://example.upstash.io")
+    assert.equal(options.headers.Authorization, "Bearer marketplace-test-token")
+    assert.equal(JSON.parse(options.body)[0], "EVAL")
+    return Response.json({ result: 158 })
+  }
+  try { assert.equal(await getVisitorCount(), 158) }
+  finally {
+    globalThis.fetch = originalFetch
+    delete process.env.KV_REST_API_URL
+    delete process.env.KV_REST_API_TOKEN
+  }
 })
