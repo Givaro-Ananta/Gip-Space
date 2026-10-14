@@ -51,13 +51,13 @@ export default function VisitorCounter() {
   return (
     <aside
       aria-label="Total website visits"
-      className="fixed bottom-4 left-4 z-40 flex min-h-11 items-center gap-2.5 rounded-full border border-purple-400/20 bg-gray-900/95 px-4 py-2 shadow-lg shadow-black/20 backdrop-blur-md sm:bottom-6 sm:left-6"
+      className="fixed bottom-3 left-3 z-40 flex min-h-7 items-center gap-1.5 sm:min-h-11 sm:gap-2.5 rounded-full border border-purple-400/20 bg-gray-900/95 px-2.5 py-1 sm:px-4 sm:py-2 shadow-lg shadow-black/20 backdrop-blur-md sm:bottom-6 sm:left-6"
     >
-      <Eye size={16} className="shrink-0 text-purple-400" aria-hidden="true" />
-      <span className="text-xs font-medium text-gray-300">Total Visits</span>
-      <span role="status" aria-live="polite" className="min-w-4 text-sm font-semibold tabular-nums text-white">
+      <Eye size={16} className="h-3 w-3 shrink-0 text-purple-400 sm:h-4 sm:w-4" aria-hidden="true" />
+      <span className="text-[10px] font-medium leading-none text-gray-300 sm:text-xs">Total Visits</span>
+      <span role="status" aria-live="polite" className="min-w-3 text-[11px] font-semibold leading-none tabular-nums text-white sm:min-w-4 sm:text-sm">
         {status === "loading" ? (
-          <><Loader2 size={14} className="animate-spin" aria-hidden="true" /><span className="sr-only">Loading visitor count</span></>
+          <><Loader2 size={14} className="h-3 w-3 animate-spin sm:h-3.5 sm:w-3.5" aria-hidden="true" /><span className="sr-only">Loading visitor count</span></>
         ) : status === "error" ? (
           <><span aria-hidden="true">—</span><span className="sr-only">Visitor count temporarily unavailable</span></>
         ) : (
