@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import {
+  useReducedMotion,
   useScroll,
   useSpring,
   useTransform,
@@ -48,18 +49,19 @@ export function ScrollProgressBar() {
 /* ─────────────────────────────────────────────
    FadeUp  — fade + slide naik dengan scale
 ───────────────────────────────────────────── */
-export function FadeUp({ children, className = "", delay = 0, once = false }) {
+export function FadeUp({ children, className = "", delay = 0, once = true }) {
   const isMobile = useIsMobile();
+  const reduceMotion = useReducedMotion();
   return (
     <motion.div
       className={className}
-      initial={isMobile ? { opacity: 0, y: 25 } : { opacity: 0, y: 60, scale: 0.96 }}
+      initial={reduceMotion ? false : isMobile ? { opacity: 0, y: 25 } : { opacity: 0, y: 28, scale: 0.96 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once, amount: 0.15 }}
       transition={isMobile ? {
         type: "tween",
         ease: [0.16, 1, 0.3, 1], // easeOutExpo
-        duration: 0.6,
+        duration: 0.4,
         delay
       } : {
         type: "spring",
@@ -77,20 +79,21 @@ export function FadeUp({ children, className = "", delay = 0, once = false }) {
 /* ─────────────────────────────────────────────
    SlideIn  — slide dari kiri atau kanan
 ───────────────────────────────────────────── */
-export function SlideIn({ children, className = "", delay = 0, from = "left", once = false }) {
+export function SlideIn({ children, className = "", delay = 0, from = "left", once = true }) {
   const isMobile = useIsMobile();
-  const x = from === "left" ? -80 : 80;
-  const mobileX = from === "left" ? -35 : 35;
+  const reduceMotion = useReducedMotion();
+  const x = from === "left" ? -28 : 28;
+  const mobileX = from === "left" ? -16 : 16;
   return (
     <div className={className}>
       <motion.div
-        initial={{ opacity: 0, x: isMobile ? mobileX : x }}
+        initial={reduceMotion ? false : { opacity: 0, x: isMobile ? mobileX : x }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once, amount: 0.15 }}
         transition={isMobile ? {
           type: "tween",
           ease: [0.16, 1, 0.3, 1], // easeOutExpo
-          duration: 0.6,
+          duration: 0.4,
           delay
         } : {
           type: "spring",
@@ -109,18 +112,19 @@ export function SlideIn({ children, className = "", delay = 0, from = "left", on
 /* ─────────────────────────────────────────────
    ZoomIn  — muncul dari kecil (scale)
 ───────────────────────────────────────────── */
-export function ZoomIn({ children, className = "", delay = 0, once = false }) {
+export function ZoomIn({ children, className = "", delay = 0, once = true }) {
   const isMobile = useIsMobile();
+  const reduceMotion = useReducedMotion();
   return (
     <motion.div
       className={className}
-      initial={isMobile ? { opacity: 0, y: 20 } : { opacity: 0, scale: 0.75 }}
+      initial={reduceMotion ? false : isMobile ? { opacity: 0, y: 20 } : { opacity: 0, scale: 0.94 }}
       whileInView={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, scale: 1 }}
       viewport={{ once, amount: 0.15 }}
       transition={isMobile ? {
         type: "tween",
         ease: [0.16, 1, 0.3, 1], // easeOutExpo
-        duration: 0.6,
+        duration: 0.4,
         delay
       } : {
         type: "spring",
@@ -138,21 +142,22 @@ export function ZoomIn({ children, className = "", delay = 0, once = false }) {
 /* ─────────────────────────────────────────────
    RevealLine  — seperti curtain reveal (clip-path)
 ───────────────────────────────────────────── */
-export function RevealLine({ children, className = "", delay = 0, once = false }) {
+export function RevealLine({ children, className = "", delay = 0, once = true }) {
   const isMobile = useIsMobile();
+  const reduceMotion = useReducedMotion();
   return (
     <motion.div
       className={className}
-      initial={{ clipPath: "inset(0 100% 0 0)", opacity: 0 }}
+      initial={reduceMotion ? false : { clipPath: "inset(0 100% 0 0)", opacity: 0 }}
       whileInView={{ clipPath: "inset(0 0% 0 0)", opacity: 1 }}
       viewport={{ once, amount: 0.2 }}
       transition={isMobile ? {
         type: "tween",
         ease: [0.16, 1, 0.3, 1], // easeOutExpo
-        duration: 0.7,
+        duration: 0.45,
         delay
       } : {
-        duration: 0.8,
+        duration: 0.45,
         ease: [0.25, 0.46, 0.45, 0.94],
         delay
       }}
@@ -174,7 +179,7 @@ const staggerContainer = {
 };
 
 const staggerItem = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  hidden: { opacity: 0, y: 24, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
@@ -183,12 +188,13 @@ const staggerItem = {
   },
 };
 
-export function StaggerContainer({ children, className = "", once = false }) {
+export function StaggerContainer({ children, className = "", once = true }) {
+  const reduceMotion = useReducedMotion();
   return (
     <motion.div
       className={className}
       variants={staggerContainer}
-      initial="hidden"
+      initial={reduceMotion ? false : "hidden"}
       whileInView="visible"
       viewport={{ once, amount: 0.1 }}
     >
@@ -214,7 +220,7 @@ export function StaggerItem({ children, className = "" }) {
   };
   
   const desktopStaggerItem = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    hidden: { opacity: 0, y: 24, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
@@ -248,6 +254,7 @@ export function ScrollReveal({ children, className = "", delay = 0, direction = 
 ───────────────────────────────────────────── */
 export function ParallaxSection({ children, className = "", speed = 0.3 }) {
   const ref = useRef(null);
+  const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -256,7 +263,7 @@ export function ParallaxSection({ children, className = "", speed = 0.3 }) {
   const smoothY = useSpring(rawY, { stiffness: 100, damping: 30 });
   return (
     <div ref={ref} className={`relative overflow-hidden ${className}`}>
-      <motion.div style={{ y: smoothY }}>{children}</motion.div>
+      <motion.div style={reduceMotion ? { y: 0 } : { y: smoothY }}>{children}</motion.div>
     </div>
   );
 }

@@ -1,22 +1,71 @@
 "use client"
 
-import { useEffect } from "react"
-import { motion } from "framer-motion"
+import { useEffect, useRef, useId } from "react"
+import { createPortal } from "react-dom"
+import { motion, useReducedMotion } from "framer-motion"
 import Image from "next/image"
 import { X, ExternalLink, Github, Cpu, Database, Layers, CheckCircle } from "lucide-react"
 
 export default function ProjectDetailModal({ project, isOpen, onClose }) {
-  // Prevent background scrolling when modal is open
+  const dialogRef = useRef(null)
+  const onCloseRef = useRef(onClose)
+  const titleId = useId()
+  const reduceMotion = useReducedMotion()
+
+  useEffect(() => { onCloseRef.current = onClose }, [onClose])
+
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "unset"
+    if (!isOpen || !project) return
+    const dialog = dialogRef.current
+    const opener = document.activeElement
+    const originalOverflow = document.body.style.overflow
+    const originalPadding = document.body.style.paddingRight
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+    document.body.style.overflow = "hidden"
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${parseFloat(getComputedStyle(document.body).paddingRight) + scrollbarWidth}px`
     }
+    const background = Array.from(document.body.children)
+      .filter((node) => !node.contains(dialog))
+      .map((node) => ({ node, inert: node.inert }))
+    background.forEach(({ node }) => { node.inert = true })
+    dialog.focus({ preventScroll: true })
+
+    const focusableElements = () => Array.from(dialog.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )).filter((element) => element.getClientRects().length > 0 && !element.closest('[inert]'))
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault()
+        event.stopPropagation()
+        onCloseRef.current()
+      }
+      if (event.key === "Tab") {
+        const elements = focusableElements()
+        const first = elements[0]
+        const last = elements[elements.length - 1]
+        if (!first) { event.preventDefault(); dialog.focus(); return }
+        if (event.shiftKey && (document.activeElement === first || document.activeElement === dialog)) {
+          event.preventDefault(); last.focus()
+        } else if (!event.shiftKey && (document.activeElement === last || document.activeElement === dialog)) {
+          event.preventDefault(); first.focus()
+        }
+      }
+    }
+    const keepFocusInside = (event) => {
+      if (!dialog.contains(event.target)) dialog.focus({ preventScroll: true })
+    }
+    document.addEventListener("keydown", handleKeyDown)
+    document.addEventListener("focusin", keepFocusInside)
     return () => {
-      document.body.style.overflow = "unset"
+      document.removeEventListener("keydown", handleKeyDown)
+      document.removeEventListener("focusin", keepFocusInside)
+      background.forEach(({ node, inert }) => { node.inert = inert })
+      document.body.style.overflow = originalOverflow
+      document.body.style.paddingRight = originalPadding
+      if (opener instanceof HTMLElement && opener.isConnected) opener.focus({ preventScroll: true })
     }
-  }, [isOpen])
+  }, [isOpen, project])
 
   if (!isOpen || !project) return null
 
@@ -24,8 +73,8 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
   const hasLiveUrl = project.liveUrl && project.liveUrl !== "#"
   const hasGithubUrl = project.githubUrl && project.githubUrl !== "#"
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 overflow-y-auto">
+  return createPortal(
+    <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 md:p-6 overflow-y-auto">
       {/* Glassmorphic Backdrop */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -37,16 +86,21 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
 
       {/* Modal Content Wrapper */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        tabIndex={-1}
+        initial={reduceMotion ? false : { opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.95, y: 20 }}
+        exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.95, y: 20 }}
         transition={{ type: "spring", duration: 0.4 }}
-        className="bg-gray-900 border border-gray-800 rounded-2xl max-w-4xl w-full max-h-[85vh] overflow-y-auto relative shadow-2xl z-10 scrollbar-thin scrollbar-thumb-gray-800"
+        className="bg-gray-900 border border-gray-800 rounded-2xl max-w-4xl w-full max-h-[85dvh] overflow-y-auto relative shadow-2xl z-10 scrollbar-thin scrollbar-thumb-gray-800"
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 text-gray-400 hover:text-white p-2 rounded-full bg-gray-800/50 hover:bg-gray-800 transition-colors z-20"
+          className="absolute right-4 top-4 text-gray-400 hover:text-white p-2 min-h-11 min-w-11 inline-flex items-center justify-center rounded-full bg-gray-800/50 hover:bg-gray-800 transition-colors z-20"
           aria-label="Close modal"
         >
           <X size={20} />
@@ -59,7 +113,7 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
             <span className="text-xs font-semibold text-purple-400 uppercase tracking-widest">
               Project Showcase
             </span>
-            <h3 className="text-2xl md:text-3xl font-extrabold text-white mt-1">
+            <h3 id={titleId} className="text-2xl md:text-3xl font-extrabold text-white mt-1">
               {project.title}
             </h3>
             <div className="flex flex-wrap gap-2 mt-3">
@@ -78,11 +132,12 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             {/* Left Column: Image and Actions */}
             <div className="md:col-span-5 flex flex-col gap-6">
-              <div className="relative aspect-video md:aspect-square w-full rounded-xl overflow-hidden bg-gray-950 border border-gray-800">
+              <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-gray-950 border border-gray-800">
                 <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   fill
+                  sizes="(min-width: 768px) 360px, 90vw"
                   className="object-cover"
                   priority
                 />
@@ -240,6 +295,7 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
           )}
         </div>
       </motion.div>
-    </div>
+    </div>,
+    document.body
   )
 }

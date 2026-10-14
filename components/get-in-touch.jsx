@@ -62,11 +62,11 @@ export default function GetInTouch() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-950 overflow-x-hidden">
+    <section id="contact" className="py-16 md:py-24 bg-gray-950 overflow-x-hidden">
       <div className="container mx-auto px-4 md:px-6">
 
         <FadeUp>
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Get In{" "}
               <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
@@ -93,7 +93,7 @@ export default function GetInTouch() {
                     </div>
                     <div>
                       <h4 className="font-medium mb-1">Email</h4>
-                      <a href="mailto:givaroananta02@gmail.com" className="text-gray-400 hover:text-white transition-colors">
+                      <a href="mailto:givaroananta02@gmail.com" className="text-gray-400 hover:text-white transition-colors break-all">
                         givaroananta02@gmail.com
                       </a>
                     </div>
@@ -162,13 +162,13 @@ export default function GetInTouch() {
 
                 {/* Status notification */}
                 {status === "success" && (
-                  <div className="flex items-center gap-2 text-green-400 bg-green-400/10 border border-green-400/20 rounded-lg px-4 py-3 text-sm">
+                  <div role="status" className="flex items-center gap-2 text-green-400 bg-green-400/10 border border-green-400/20 rounded-lg px-4 py-3 text-sm">
                     <CheckCircle size={16} />
                     Message sent successfully! I&apos;ll get back to you soon.
                   </div>
                 )}
                 {status === "error" && (
-                  <div className="flex items-center gap-2 text-red-400 bg-red-400/10 border border-red-400/20 rounded-lg px-4 py-3 text-sm">
+                  <div role="alert" className="flex items-center gap-2 text-red-400 bg-red-400/10 border border-red-400/20 rounded-lg px-4 py-3 text-sm">
                     <XCircle size={16} />
                     Failed to send. Please try again or email me directly.
                   </div>

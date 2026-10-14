@@ -9,7 +9,6 @@ body {
 
 
 .container {
-  display: grid;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -62,4 +61,29 @@ body {
 
 .stagger-animation>*:nth-child(6) {
   animation-delay: 0.6s;
+}
+/* Shared spacing, readable secondary text, and keyboard navigation. */
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid #c084fc;
+  outline-offset: 4px;
+}
+
+.text-gray-400 {
+  color: #b0b7c4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.dark.scroll-smooth {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

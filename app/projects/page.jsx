@@ -62,7 +62,7 @@ export default function ProjectsPage() {
                             className="text-gray-400 max-w-2xl"
                         >
                             A complete collection of my projects. Each project showcases
-                            different skills and technologies I've worked with.
+                            different skills and technologies I&apos;ve worked with.
                         </motion.p>
                     </div>
 
@@ -81,32 +81,35 @@ export default function ProjectsPage() {
                                 className="bg-gray-800/50 border border-gray-700/50 rounded-xl overflow-hidden hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/30 transition-all duration-300 group flex flex-col h-full"
                             >
                                 {/* Clickable Image Header */}
-                                <div 
+                                <button
+                                    type="button"
+                                    aria-label={`Lihat Detail: ${project.title}`}
+                                    aria-haspopup="dialog"
                                     onClick={() => setSelectedProject(project)}
-                                    className="relative h-52 overflow-hidden cursor-pointer"
+                                    className="relative block w-full shrink-0 aspect-video overflow-hidden cursor-pointer"
                                 >
                                     <Image
                                         src={project.image || "/placeholder.svg"}
                                         alt={project.title}
                                         fill
+                                        sizes="(min-width: 1024px) 380px, (min-width: 768px) 50vw, 100vw"
                                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                    <span className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    <span className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                         <span className="px-4 py-2 bg-purple-600/90 text-white font-medium text-sm rounded-lg backdrop-blur-sm transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-1.5">
                                             <Info size={16} />
                                             Lihat Detail
                                         </span>
-                                    </div>
-                                </div>
+                                    </span>
+                                </button>
                                 
                                 <div className="p-6 flex flex-col flex-1 justify-between">
                                     <div>
-                                        <h3 
-                                            onClick={() => setSelectedProject(project)}
-                                            className="text-lg font-bold mb-2 group-hover:text-purple-400 cursor-pointer transition-colors"
-                                        >
-                                            {project.title}
+                                        <h3 className="text-lg font-bold mb-2 group-hover:text-purple-400 cursor-pointer transition-colors">
+                                            <button type="button" onClick={() => setSelectedProject(project)} className="text-left" aria-haspopup="dialog">
+                                                {project.title}
+                                            </button>
                                         </h3>
                                         <p className="text-gray-400 text-sm mb-4 line-clamp-3">
                                             {project.description}
@@ -123,11 +126,11 @@ export default function ProjectsPage() {
                                         </div>
                                     </div>
                                     
-                                    <div className="flex gap-4 items-center border-t border-gray-700/50 pt-4 mt-auto">
+                                    <div className="flex flex-wrap gap-x-4 gap-y-2 items-center border-t border-gray-700/50 pt-4 mt-auto">
                                         {project.liveUrl && project.liveUrl !== "#" && (
                                             <a
                                                 href={project.liveUrl}
-                                                className="flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors font-medium"
+                                                                        className="flex min-h-11 items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors font-medium"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 id={`project-live-${project.title.toLowerCase().replace(/\s+/g, '-')}`}
@@ -138,7 +141,8 @@ export default function ProjectsPage() {
                                         )}
                                         <button
                                             onClick={() => setSelectedProject(project)}
-                                            className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-purple-400 transition-colors font-medium ml-auto"
+                                            aria-haspopup="dialog"
+                                            className="flex min-h-11 items-center gap-1.5 text-sm text-gray-400 hover:text-purple-400 transition-colors font-medium ml-auto"
                                         >
                                             <Info size={16} />
                                             Detail Project

@@ -40,12 +40,12 @@ const technologies = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 bg-gray-950">
+    <section id="skills" className="py-16 md:py-24 bg-gray-950">
       <div className="container mx-auto px-4 md:px-6">
 
         {/* Heading */}
         <FadeUp>
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               My{" "}
               <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
@@ -65,12 +65,12 @@ export default function Skills() {
         </FadeUp>
 
         {/* Skills — stagger masuk satu per satu */}
-        <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-14">
+        <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 mb-10">
           {skills.map((skill) => (
             <StaggerItem key={skill.name}>
               <motion.div
-                className="flex flex-col items-center justify-center p-6 bg-gray-800 rounded-xl hover:bg-gray-700 transition-colors duration-300 cursor-default h-full"
-                whileHover={{ y: -6, scale: 1.04, transition: { type: "spring", stiffness: 300 } }}
+                className="flex flex-col items-center justify-center p-4 sm:p-5 bg-gray-800/60 border border-gray-700/50 rounded-xl hover:bg-gray-700 transition-colors duration-300 cursor-default h-full"
+                whileHover={{ y: -3, scale: 1.02, transition: { type: "spring", stiffness: 300 } }}
               >
                 <div className="mb-3">{skill.icon}</div>
                 <h4 className="font-medium text-sm text-center">{skill.name}</h4>
@@ -84,12 +84,12 @@ export default function Skills() {
           <h3 className="text-xl font-semibold mb-8 text-center">Technologies &amp; Tools</h3>
         </FadeUp>
 
-        <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
+        <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
           {technologies.map((tech) => (
             <StaggerItem key={tech.name}>
               <motion.div
-                className="flex flex-col items-center p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300 cursor-default h-full"
-                whileHover={{ y: -4, scale: 1.05, transition: { type: "spring", stiffness: 300 } }}
+                className="flex flex-col items-center p-3 sm:p-4 bg-gray-800/60 border border-gray-700/50 rounded-xl hover:bg-gray-700 transition-colors duration-300 cursor-default h-full"
+                whileHover={{ y: -3, scale: 1.02, transition: { type: "spring", stiffness: 300 } }}
               >
                 <div className="mb-2">{tech.icon}</div>
                 <span className="text-sm text-center">{tech.name}</span>
